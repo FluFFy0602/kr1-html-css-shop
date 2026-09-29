@@ -39,6 +39,11 @@
   box-sizing: border-box;
 }
 
+/* Smooth scrolling to anchors. */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -75,6 +80,12 @@ a:hover {
 a:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
+}
+
+/* Highlight the element an anchor link points to. */
+:target {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
 }
 
 /*
@@ -143,6 +154,23 @@ button:disabled,
 
 .site-nav__list a:hover {
   text-decoration: underline;
+}
+
+.breadcrumbs {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-md);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.breadcrumbs a {
+  color: var(--color-primary);
+}
+
+/* Separator before the current page name (the current page is not a link). */
+.breadcrumbs span::before {
+  content: " / ";
+  color: var(--color-muted);
 }
 
 .hero {
