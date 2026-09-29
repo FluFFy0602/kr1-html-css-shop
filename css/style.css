@@ -1,317 +1,287 @@
 /*
-  CSS architecture (practice 4):
-  - design tokens live in :root as custom properties;
-  - class names follow BEM: block, block__element, block--modifier;
-  - every interactive element has hover, focus-visible, active
-    and disabled states.
-  Order of the file: tokens -> base -> layout -> components -> states.
+  Универсальное правило для всех элементов.
+  border-box делает расчёт размеров более понятным:
+  width включает content, padding и border.
 */
-
-/* ========== Design tokens ========== */
-:root {
-  --color-text: #222222;
-  --color-text-muted: #666666;
-  --color-bg: #ffffff;
-  --color-bg-muted: #f2f2f2;
-  --color-bg-soft: #f7f7f7;
-  --color-bg-accent: #eef5ff;
-  --color-border: #dddddd;
-  --color-border-field: #cccccc;
-
-  --color-primary: #0057b8;
-  --color-primary-hover: #003f86;
-  --color-primary-active: #002e63;
-  --color-danger: #b00020;
-  --color-success: #168a2f;
-  --color-success-bg: #eefaf0;
-  --color-disabled-bg: #b8c4d4;
-  --color-disabled-text: #f2f2f2;
-
-  --font-family-base: Arial, sans-serif;
-  --line-height-base: 1.5;
-
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-
-  --container-width: 1100px;
-  --transition-fast: 0.15s ease;
-}
-
-/* ========== Base ========== */
 * {
   box-sizing: border-box;
 }
 
+/*
+  Убираем стандартный внешний отступ браузера у body.
+  Без этого вокруг страницы может появиться белая рамка.
+*/
 body {
   margin: 0;
-  font-family: var(--font-family-base);
-  line-height: var(--line-height-base);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #222222;
+  background-color: #ffffff;
 }
 
-main {
-  padding: var(--space-5);
+/*
+  Задаём внутренние отступы для основных областей страницы.
+  Это делает содержимое визуально отделённым от краёв окна браузера.
+*/
+header,
+main,
+footer {
+  padding: 20px;
 }
 
-/* Keyboard focus is shown the same way on every interactive element. */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+/*
+  Оформляем шапку страницы.
+  Пока используется простой светло-серый фон.
+*/
+header {
+  background-color: #f2f2f2;
 }
 
-/* ========== Block: site-header ========== */
+/*
+  Оформляем подвал страницы тем же фоном,
+  чтобы визуально отделить его от основного содержимого.
+*/
+footer {
+  background-color: #f2f2f2;
+}
+
+/*
+  Ограничиваем ширину содержимого шапки,
+  чтобы оно не растягивалось слишком сильно на широких экранах.
+*/
 .site-header {
-  padding: var(--space-5);
-  background-color: var(--color-bg-muted);
-}
-
-.site-header__inner {
-  max-width: var(--container-width);
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.site-header__logo {
+/*
+  Оформляем текстовый логотип.
+*/
+.site-logo {
   font-weight: bold;
   text-decoration: none;
-  color: var(--color-text);
+  color: #222222;
 }
 
-.site-header__logo:hover {
-  color: var(--color-primary);
-}
-
-/* ========== Block: site-nav ========== */
+/*
+  Убираем стандартные отступы и маркеры списка навигации.
+*/
 .site-nav__list {
   padding: 0;
-  margin: var(--space-4) 0 0;
+  margin: 16px 0 0;
   list-style: none;
 }
 
-.site-nav__item {
-  margin-bottom: var(--space-2);
+/*
+  Добавляем расстояние между пунктами меню.
+*/
+.site-nav__list li {
+  margin-bottom: 8px;
 }
 
-.site-nav__link {
-  color: var(--color-primary);
+/*
+  Оформляем ссылки меню.
+*/
+.site-nav__list a {
+  color: #0057b8;
   text-decoration: none;
-  transition: color var(--transition-fast);
 }
 
-.site-nav__link:hover {
-  color: var(--color-primary-hover);
+/*
+  При наведении мыши подчёркиваем ссылку.
+  Подробно состояния интерфейса будут рассмотрены в практической работе 1.7.
+*/
+.site-nav__list a:hover {
   text-decoration: underline;
 }
 
-.site-nav__link:active {
-  color: var(--color-primary-active);
-}
-
-/* Current page. */
-.site-nav__link--current {
-  font-weight: bold;
-  color: var(--color-text);
-}
-
-/* ========== Block: site-footer ========== */
-.site-footer {
-  padding: var(--space-5);
-  background-color: var(--color-bg-muted);
-}
-
-/* ========== Block: hero ========== */
+/*
+  Hero-блок — первый крупный блок страницы.
+  Он визуально отделяется от остальных разделов фоном и отступами.
+*/
 .hero {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-8);
-  padding: var(--space-8) var(--space-5);
-  background-color: var(--color-bg-accent);
-  border-radius: var(--radius-lg);
+  max-width: 1100px;
+  margin: 0 auto 32px;
+  padding: 32px 20px;
+  background-color: #eef5ff;
+  border-radius: 12px;
 }
 
-.hero__title {
-  margin-top: 0;
-}
-
-/* ========== Block: section ========== */
+/*
+  Общий класс для разделов страницы.
+*/
 .section {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-8);
+  max-width: 1100px;
+  margin: 0 auto 32px;
 }
 
-.section__title {
+/*
+  Убираем лишний верхний отступ у заголовков разделов.
+*/
+.section h2 {
   margin-top: 0;
 }
 
-/* ========== Block: product-card ========== */
+/*
+  Карточка товара — самостоятельный блок.
+  На следующих занятиях карточки будут доработаны и выстроены в сетку.
+*/
 .product-card {
-  margin-bottom: var(--space-4);
-  padding: var(--space-4);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background-color: var(--color-bg);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background-color: #ffffff;
 }
 
-.product-card:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.product-card__title {
+/*
+  Убираем лишний верхний отступ у заголовка карточки.
+*/
+.product-card h3 {
   margin-top: 0;
 }
 
-.product-card__price {
-  font-weight: bold;
-}
-
-/* ========== Block: button ========== */
+/*
+  Пока это обычная ссылка, но визуально она оформляется как кнопка.
+*/
 .button {
   display: inline-block;
-  padding: 10px var(--space-4);
-  border: none;
-  border-radius: var(--radius-sm);
-  font: inherit;
+  padding: 10px 16px;
   color: #ffffff;
-  background-color: var(--color-primary);
+  background-color: #0057b8;
   text-decoration: none;
+  border-radius: 6px;
+}
+
+/*
+  The same class is used on <button> in product cards:
+  reset the browser's default border, font and cursor.
+*/
+button.button {
+  border: none;
+  font: inherit;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
 }
 
+/*
+  Простое состояние наведения для кнопки.
+*/
 .button:hover {
-  background-color: var(--color-primary-hover);
+  background-color: #003f86;
 }
 
-.button:active {
-  background-color: var(--color-primary-active);
-}
-
-.button:disabled,
-.button[aria-disabled="true"] {
-  color: var(--color-disabled-text);
-  background-color: var(--color-disabled-bg);
-  cursor: not-allowed;
-}
-
-/* Secondary action, e.g. "Close" in the dialog. */
-.button--secondary {
-  color: var(--color-primary);
-  background-color: transparent;
-  box-shadow: inset 0 0 0 1px var(--color-primary);
-}
-
-.button--secondary:hover {
-  color: #ffffff;
-}
-
-/* ========== Block: aside-info ========== */
+/*
+  Дополнительный информационный блок.
+*/
 .aside-info {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-8);
-  padding: var(--space-4);
-  border-left: 4px solid var(--color-primary);
-  background-color: var(--color-bg-soft);
+  max-width: 1100px;
+  margin: 0 auto 32px;
+  padding: 16px;
+  border-left: 4px solid #0057b8;
+  background-color: #f7f7f7;
 }
 
-.aside-info__title {
-  margin-top: 0;
-}
-
-/* ========== Block: order-dialog ========== */
+/*
+  Order dialog.
+  <dialog> opened with showModal() is already drawn above the page.
+*/
 .order-dialog {
   width: min(100% - 32px, 560px);
-  padding: var(--space-6);
+  padding: 24px;
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
 }
 
+/*
+  Dimmed page behind the open dialog.
+*/
 .order-dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.order-dialog__title {
+.order-dialog h2 {
   margin-top: 0;
 }
 
-/* ========== Block: order-form ========== */
-.order-form__actions {
-  display: flex;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
-}
-
-/* ========== Block: form-field ========== */
+/*
+  One form field: label, control and an optional hint.
+*/
 .form-field {
-  margin-bottom: var(--space-4);
+  margin-bottom: 16px;
 }
 
-.form-field__label {
+.form-field label {
   display: block;
   margin-bottom: 6px;
 }
 
-.form-field__control {
+.form-field input,
+.form-field select,
+.form-field textarea {
   width: 100%;
-  padding: 10px var(--space-3);
-  border: 1px solid var(--color-border-field);
-  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
   font: inherit;
-  background-color: var(--color-bg);
-  transition: border-color var(--transition-fast);
 }
 
-.form-field__control:hover {
-  border-color: var(--color-primary);
-}
-
-.form-field__control:disabled {
-  color: var(--color-text-muted);
-  background-color: var(--color-bg-muted);
-  border-color: var(--color-border);
-  cursor: not-allowed;
-}
-
-.form-field__hint {
-  display: block;
-  margin-top: var(--space-1);
-  color: var(--color-text-muted);
-}
-
-/* A checkbox keeps its natural size instead of stretching. */
-.form-field--checkbox .form-field__control {
+/*
+  A checkbox keeps its natural size instead of stretching to full width.
+*/
+.form-field input[type="checkbox"] {
   width: auto;
 }
 
-/* Invalid state; aria-invalid is set from js/main.js. */
-.form-field__control[aria-invalid="true"] {
-  border-color: var(--color-danger);
+/*
+  Format hint under the phone field.
+*/
+.form-field small {
+  display: block;
+  margin-top: 4px;
+  color: #666666;
 }
 
-/* A checkbox ignores border-color, so it gets an outline instead. */
-.form-field--checkbox .form-field__control[aria-invalid="true"] {
-  outline: 2px solid var(--color-danger);
+/*
+  Visible focus for keyboard navigation.
+*/
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible,
+.form-actions button:focus-visible {
+  outline: 2px solid #0057b8;
   outline-offset: 2px;
 }
 
-/* ========== Block: success-message ========== */
+/*
+  Invalid fields; aria-invalid is set from js/main.js.
+  The .form-field prefix is needed to beat the specificity
+  of the ".form-field input" rule that sets the grey border.
+*/
+.form-field [aria-invalid="true"] {
+  border-color: #b00020;
+}
+
+/*
+  A checkbox ignores border-color, so it gets an outline instead.
+*/
+.form-field input[type="checkbox"][aria-invalid="true"] {
+  outline: 2px solid #b00020;
+  outline-offset: 2px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/*
+  Message shown after the form has been sent.
+*/
 .success-message {
-  max-width: var(--container-width);
-  margin: var(--space-6) auto;
-  padding: var(--space-4);
-  border-left: 4px solid var(--color-success);
-  background-color: var(--color-success-bg);
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 16px;
+  border-left: 4px solid #168a2f;
+  background-color: #eefaf0;
 }
