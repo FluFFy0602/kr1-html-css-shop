@@ -154,6 +154,16 @@ footer {
 }
 
 /*
+  The same class is used on <button> in product cards:
+  reset the browser's default border, font and cursor.
+*/
+button.button {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+/*
   Простое состояние наведения для кнопки.
 */
 .button:hover {
@@ -169,4 +179,109 @@ footer {
   padding: 16px;
   border-left: 4px solid #0057b8;
   background-color: #f7f7f7;
+}
+
+/*
+  Order dialog.
+  <dialog> opened with showModal() is already drawn above the page.
+*/
+.order-dialog {
+  width: min(100% - 32px, 560px);
+  padding: 24px;
+  border: none;
+  border-radius: 12px;
+}
+
+/*
+  Dimmed page behind the open dialog.
+*/
+.order-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.order-dialog h2 {
+  margin-top: 0;
+}
+
+/*
+  One form field: label, control and an optional hint.
+*/
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font: inherit;
+}
+
+/*
+  A checkbox keeps its natural size instead of stretching to full width.
+*/
+.form-field input[type="checkbox"] {
+  width: auto;
+}
+
+/*
+  Format hint under the phone field.
+*/
+.form-field small {
+  display: block;
+  margin-top: 4px;
+  color: #666666;
+}
+
+/*
+  Visible focus for keyboard navigation.
+*/
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible,
+.form-actions button:focus-visible {
+  outline: 2px solid #0057b8;
+  outline-offset: 2px;
+}
+
+/*
+  Invalid fields; aria-invalid is set from js/main.js.
+  The .form-field prefix is needed to beat the specificity
+  of the ".form-field input" rule that sets the grey border.
+*/
+.form-field [aria-invalid="true"] {
+  border-color: #b00020;
+}
+
+/*
+  A checkbox ignores border-color, so it gets an outline instead.
+*/
+.form-field input[type="checkbox"][aria-invalid="true"] {
+  outline: 2px solid #b00020;
+  outline-offset: 2px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/*
+  Message shown after the form has been sent.
+*/
+.success-message {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 16px;
+  border-left: 4px solid #168a2f;
+  background-color: #eefaf0;
 }
