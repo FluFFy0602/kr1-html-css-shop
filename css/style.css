@@ -428,6 +428,15 @@ button:disabled,
   margin-top: 0;
 }
 
+.order-form__note {
+  margin: 0 0 var(--space-md);
+  color: var(--color-muted);
+}
+
+.order-form__required {
+  color: var(--color-danger);
+}
+
 .order-form__field {
   margin-bottom: var(--space-md);
 }
