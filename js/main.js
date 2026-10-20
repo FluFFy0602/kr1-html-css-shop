@@ -18,6 +18,21 @@ closeDialogButton.addEventListener('click', () => {
   orderDialog.close();
 });
 
+// A click on the backdrop is dispatched to the dialog itself,
+// so check that the pointer is outside the dialog box.
+orderDialog.addEventListener('click', (event) => {
+  const box = orderDialog.getBoundingClientRect();
+  const isOutside =
+    event.clientX < box.left ||
+    event.clientX > box.right ||
+    event.clientY < box.top ||
+    event.clientY > box.bottom;
+
+  if (isOutside) {
+    orderDialog.close();
+  }
+});
+
 orderForm.addEventListener('submit', (event) => {
   event.preventDefault();
 

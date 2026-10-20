@@ -373,6 +373,38 @@ button:disabled,
   color: var(--color-muted);
 }
 
+.reviews__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.review-card--accent {
+  background-color: var(--color-surface-accent);
+}
+
+.review-card__text {
+  margin: 0;
+}
+
+.review-card__author {
+  margin: auto 0 0;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
 .success-message {
   max-width: var(--container-width);
   margin: var(--space-lg) auto;
@@ -392,8 +424,45 @@ button:disabled,
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.order-dialog[open] {
+  animation: order-dialog-show 0.2s ease-out;
+}
+
+.order-dialog[open]::backdrop {
+  animation: order-dialog-fade 0.2s ease-out;
+}
+
+@keyframes order-dialog-show {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes order-dialog-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .order-dialog[open],
+  .order-dialog[open]::backdrop {
+    animation: none;
+  }
+}
+
 .order-dialog__title {
   margin-top: 0;
+}
+
+.order-form__note {
+  margin: 0 0 var(--space-md);
+  color: var(--color-muted);
+}
+
+.order-form__required {
+  color: var(--color-danger);
 }
 
 .order-form__field {
