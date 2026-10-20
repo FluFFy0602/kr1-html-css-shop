@@ -424,6 +424,34 @@ button:disabled,
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.order-dialog[open] {
+  animation: order-dialog-show 0.2s ease-out;
+}
+
+.order-dialog[open]::backdrop {
+  animation: order-dialog-fade 0.2s ease-out;
+}
+
+@keyframes order-dialog-show {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes order-dialog-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .order-dialog[open],
+  .order-dialog[open]::backdrop {
+    animation: none;
+  }
+}
+
 .order-dialog__title {
   margin-top: 0;
 }
