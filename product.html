@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Карточка товара учебного интернет-магазина: описание, характеристики и цена.">
+  <title>Карточка товара — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/products.js" defer></script>
+  <script src="js/product.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#faq">Частые вопросы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+      <span class="breadcrumbs__current" id="breadcrumb-product">Товар</span>
+    </nav>
+
+    <article class="section product-page" id="product" hidden>
+      <div class="product-page__media">
+        <img
+          class="product-page__image"
+          id="product-image"
+          src="images/smartphone.svg"
+          alt=""
+          width="320"
+          height="200"
+        >
+        <span class="product-card__badge" id="product-badge" hidden></span>
+      </div>
+
+      <div class="product-page__info">
+        <p class="product-card__category" id="product-category"></p>
+        <h1 class="product-page__title" id="product-title"></h1>
+        <p class="product-page__description" id="product-description"></p>
+
+        <p class="product-page__status" id="product-status"></p>
+        <p class="product-page__price" id="product-price"></p>
+
+        <div class="product-page__actions">
+          <button class="button button--primary" id="product-order" type="button">Заказать</button>
+          <a class="button button--secondary" href="catalog.html">Назад в каталог</a>
+        </div>
+      </div>
+
+      <section class="product-page__specs" aria-labelledby="product-specs-title">
+        <h2 class="product-page__specs-title" id="product-specs-title">Характеристики</h2>
+
+        <table class="specs-table">
+          <caption class="specs-table__caption">Основные характеристики товара</caption>
+          <tbody id="product-specs"></tbody>
+        </table>
+      </section>
+    </article>
+
+    <section class="section product-not-found" id="product-not-found" hidden>
+      <h1>Товар не найден</h1>
+      <p>Такого товара нет в каталоге. Возможно, ссылка устарела.</p>
+      <a class="button button--primary" href="catalog.html">Перейти в каталог</a>
+    </section>
+
+    <p class="success-message" id="success-message" role="status" aria-live="polite" hidden>
+      Форма успешно отправлена!
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+    <p class="order-dialog__product" id="order-dialog-product" hidden></p>
+
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+
+      <p class="order-form__note">Поля, отмеченные <span aria-hidden="true">*</span>«звёздочкой», обязательны для заполнения.</p>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+        <input
+          class="order-form__input"
+          id="order-name"
+          name="name"
+          type="text"
+          placeholder="Введите ваше имя"
+          minlength="2"
+          autocomplete="given-name"
+          required
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+        <input
+          class="order-form__input"
+          id="order-email"
+          name="email"
+          type="email"
+          placeholder="example@mail.ru"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
+        <input
+          class="order-form__input"
+          id="order-phone"
+          name="phone"
+          type="tel"
+          inputmode="tel"
+          placeholder="+7 (900) 000-00-00"
+          pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+          autocomplete="tel"
+          aria-describedby="order-phone-hint"
+          required
+        >
+        <small class="order-form__hint" id="order-phone-hint">Формат: +7 (900) 000-00-00</small>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-date">Дата связи</label>
+        <input
+          class="order-form__input"
+          id="order-date"
+          name="date"
+          type="date"
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-topic">Тема заявки <span class="order-form__required" aria-hidden="true">*</span></label>
+        <select class="order-form__select" id="order-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option value="product">Заказ товара</option>
+          <option value="consultation">Консультация</option>
+          <option value="delivery">Доставка</option>
+        </select>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-comment">Комментарий</label>
+        <textarea
+          class="order-form__textarea"
+          id="order-comment"
+          name="comment"
+          rows="4"
+          placeholder="Укажите дополнительную информацию"
+        ></textarea>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-agreement">
+          <input
+            class="order-form__checkbox"
+            id="order-agreement"
+            name="agreement"
+            type="checkbox"
+            required
+          >
+          Я согласен на обработку данных <span class="order-form__required" aria-hidden="true">*</span>
+        </label>
+      </div>
+
+      <div class="order-form__actions">
+        <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+        <button class="button button--primary" type="submit">Отправить заявку</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

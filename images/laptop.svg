@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Ноутбук">
+  <rect width="320" height="200" fill="#eef5ff"/>
+  <rect x="70" y="40" width="180" height="108" rx="8" fill="#ffffff" stroke="#0057b8" stroke-width="5"/>
+  <rect x="80" y="50" width="160" height="88" rx="3" fill="#cfe2fb"/>
+  <path d="M46 156h228l-14 14H60z" fill="#0057b8"/>
+  <rect x="136" y="156" width="48" height="5" rx="2" fill="#cfe2fb"/>
+  <path d="M100 118l30-34 22 22 22-30 26 42z" fill="#0057b8" opacity="0.35"/>
+</svg>
