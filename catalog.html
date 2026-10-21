@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+  <meta name="description" content="Каталог учебного интернет-магазина: смартфоны, ноутбуки, планшеты, наушники и аксессуары.">
   <title>Каталог товаров — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -35,7 +35,7 @@
     <section class="section">
       <h1>Каталог товаров</h1>
       <p>
-        На этой странице представлен учебный каталог товаров.
+        Смартфоны, ноутбуки, планшеты, наушники и аксессуары.
         Слева расположены фильтры, справа — список товаров.
       </p>
     </section>
@@ -49,29 +49,39 @@
             <legend class="filters-form__legend">Категория</legend>
 
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="all">
-              Все товары
+              <input type="checkbox" name="category" value="smartphones">
+              Смартфоны
             </label>
 
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="popular">
-              Популярные
+              <input type="checkbox" name="category" value="laptops">
+              Ноутбуки
             </label>
 
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="new">
-              Новинки
+              <input type="checkbox" name="category" value="tablets">
+              Планшеты
+            </label>
+
+            <label class="filters-form__label">
+              <input type="checkbox" name="category" value="headphones">
+              Наушники
+            </label>
+
+            <label class="filters-form__label">
+              <input type="checkbox" name="category" value="accessories">
+              Аксессуары
             </label>
           </fieldset>
 
           <fieldset class="filters-form__group">
-            <legend class="filters-form__legend">Цена</legend>
+            <legend class="filters-form__legend">Цена, руб.</legend>
 
             <label class="filters-form__label" for="price-from">От</label>
             <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
 
             <label class="filters-form__label" for="price-to">До</label>
-            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="100000">
           </fieldset>
 
           <button class="button button--primary" type="submit">Применить</button>
@@ -82,118 +92,150 @@
         <h2>Список товаров</h2>
 
         <div class="products-grid">
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 1</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
-          </article>
-
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 2</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
-          </article>
-
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 3</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
-          </article>
-
           <article class="product-card product-card--featured">
             <span class="product-card__badge">Хит</span>
-            <h3 class="product-card__title">Товар 4</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
-          </article>
-
-          <article class="product-card product-card--discount">
-            <span class="product-card__badge">Скидка</span>
-            <h3 class="product-card__title">Товар 5</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 3000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
-          </article>
-
-          <article class="product-card product-card--unavailable">
-            <span class="product-card__badge">Нет в наличии</span>
-            <h3 class="product-card__title">Товар 6</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 3500 руб.</p>
-            <button class="button button--primary product-card__button" type="button" disabled>Недоступно</button>
-          </article>
-
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 7</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 4000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/smartphone.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Смартфоны</p>
+            <h3 class="product-card__title">Смартфон Nova X5</h3>
+            <p class="product-card__description">AMOLED 6,7", 128 ГБ памяти, тройная камера 50 Мп.</p>
+            <p class="product-card__price">Цена: 29&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=nova-x5">Подробнее</a>
           </article>
 
           <article class="product-card">
             <span class="product-card__badge">Новинка</span>
-            <h3 class="product-card__title">Товар 8</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 4500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/headphones.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Наушники</p>
+            <h3 class="product-card__title">Наушники Aura Buds</h3>
+            <p class="product-card__description">Беспроводные, шумоподавление, до 30 часов работы с кейсом.</p>
+            <p class="product-card__price">Цена: 5&nbsp;490 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=aura-buds">Подробнее</a>
           </article>
 
           <article class="product-card product-card--discount">
             <span class="product-card__badge">Скидка</span>
-            <h3 class="product-card__title">Товар 9</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1200 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/laptop.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Ноутбуки</p>
+            <h3 class="product-card__title">Ноутбук Vector 14</h3>
+            <p class="product-card__description">14" IPS, 16 ГБ памяти, SSD 512 ГБ, вес 1,4 кг.</p>
+            <p class="product-card__price">Цена: 49&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=vector-14">Подробнее</a>
+          </article>
+
+          <article class="product-card">
+            <img class="product-card__image" src="images/smartphone.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Смартфоны</p>
+            <h3 class="product-card__title">Смартфон Nova Lite</h3>
+            <p class="product-card__description">IPS 6,5", 64 ГБ памяти, аккумулятор 5000 мА·ч.</p>
+            <p class="product-card__price">Цена: 12&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=nova-lite">Подробнее</a>
           </article>
 
           <article class="product-card product-card--featured">
             <span class="product-card__badge">Хит</span>
-            <h3 class="product-card__title">Товар 10</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 5000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
-          </article>
-
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 11</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 5500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/laptop.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Ноутбуки</p>
+            <h3 class="product-card__title">Игровой ноутбук Forge 16</h3>
+            <p class="product-card__description">16" 165 Гц, 32 ГБ памяти, дискретная видеокарта.</p>
+            <p class="product-card__price">Цена: 89&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=forge-16">Подробнее</a>
           </article>
 
           <article class="product-card product-card--unavailable">
             <span class="product-card__badge">Нет в наличии</span>
-            <h3 class="product-card__title">Товар 12</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 6000 руб.</p>
-            <button class="button button--primary product-card__button" type="button" disabled>Недоступно</button>
+            <img class="product-card__image" src="images/headphones.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Наушники</p>
+            <h3 class="product-card__title">Наушники Studio Pro</h3>
+            <p class="product-card__description">Накладные, закрытые, складная конструкция, до 40 часов.</p>
+            <p class="product-card__price">Цена: 7&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=studio-pro">Подробнее</a>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 13</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 6500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/accessory.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Колонка Boom Mini</h3>
+            <p class="product-card__description">Портативная, 10 Вт, защита IP67, до 12 часов.</p>
+            <p class="product-card__price">Цена: 3&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=boom-mini">Подробнее</a>
           </article>
 
           <article class="product-card">
             <span class="product-card__badge">Новинка</span>
-            <h3 class="product-card__title">Товар 14</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 7000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/accessory.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Умные часы Pulse 2</h3>
+            <p class="product-card__description">AMOLED, пульс, GPS, до 14 дней без подзарядки.</p>
+            <p class="product-card__price">Цена: 8&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=pulse-2">Подробнее</a>
+          </article>
+
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge">Скидка</span>
+            <img class="product-card__image" src="images/accessory.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Power Bank Charge 20000</h3>
+            <p class="product-card__description">20 000 мА·ч, быстрая зарядка до 65 Вт, два порта USB-C.</p>
+            <p class="product-card__price">Цена: 2&nbsp;490 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=charge-20000">Подробнее</a>
           </article>
 
           <article class="product-card product-card--featured">
             <span class="product-card__badge">Хит</span>
-            <h3 class="product-card__title">Товар 15</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 7500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/smartphone.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Смартфоны</p>
+            <h3 class="product-card__title">Смартфон Nova Pro Max</h3>
+            <p class="product-card__description">AMOLED 6,9", 256 ГБ памяти, камера 200 Мп.</p>
+            <p class="product-card__price">Цена: 59&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=nova-pro-max">Подробнее</a>
+          </article>
+
+          <article class="product-card">
+            <img class="product-card__image" src="images/laptop.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Ноутбуки</p>
+            <h3 class="product-card__title">Ноутбук Slim Air 13</h3>
+            <p class="product-card__description">13,3" OLED, вес 1,1 кг, до 18 часов работы.</p>
+            <p class="product-card__price">Цена: 64&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=slim-air-13">Подробнее</a>
+          </article>
+
+          <article class="product-card product-card--unavailable">
+            <span class="product-card__badge">Нет в наличии</span>
+            <img class="product-card__image" src="images/headphones.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Наушники</p>
+            <h3 class="product-card__title">Наушники Tiny Buds</h3>
+            <p class="product-card__description">Компактные вкладыши, кейс на 24 часа, защита IPX5.</p>
+            <p class="product-card__price">Цена: 2&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=tiny-buds">Подробнее</a>
+          </article>
+
+          <article class="product-card">
+            <img class="product-card__image" src="images/accessory.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Чехол-книжка для Nova X5</h3>
+            <p class="product-card__description">Экокожа, кармашек для карты, функция подставки.</p>
+            <p class="product-card__price">Цена: 990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=case-nova-x5">Подробнее</a>
+          </article>
+
+          <article class="product-card">
+            <span class="product-card__badge">Новинка</span>
+            <img class="product-card__image" src="images/accessory.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Мышь Glide</h3>
+            <p class="product-card__description">Беспроводная, Bluetooth и 2,4 ГГц, до 9 месяцев от батарейки.</p>
+            <p class="product-card__price">Цена: 1&nbsp;490 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=glide-mouse">Подробнее</a>
+          </article>
+
+          <article class="product-card product-card--featured">
+            <span class="product-card__badge">Хит</span>
+            <img class="product-card__image" src="images/tablet.svg" alt="" width="320" height="200" loading="lazy">
+            <p class="product-card__category">Планшеты</p>
+            <h3 class="product-card__title">Планшет Tab 10</h3>
+            <p class="product-card__description">IPS 10,4", 64 ГБ памяти, четыре динамика.</p>
+            <p class="product-card__price">Цена: 17&nbsp;990 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html?id=tab-10">Подробнее</a>
           </article>
         </div>
       </section>
