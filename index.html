@@ -197,13 +197,16 @@
   </footer>
 
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-    <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+    <header class="order-dialog__header">
+      <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+      <button class="order-dialog__close" type="button" aria-label="Закрыть окно" data-close-dialog>&times;</button>
+    </header>
     <p class="order-dialog__product" id="order-dialog-product" hidden></p>
 
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
 
-      <p class="order-form__note">Поля, отмеченные <span aria-hidden="true">*</span>«звёздочкой», обязательны для заполнения.</p>
+      <p class="order-form__note">Поля, отмеченные звёздочкой <span aria-hidden="true">(*)</span>, обязательны для заполнения.</p>
 
       <div class="order-form__field">
         <label class="order-form__label" for="order-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
@@ -215,6 +218,7 @@
           placeholder="Введите ваше имя"
           minlength="2"
           autocomplete="given-name"
+          autofocus
           required
         >
       </div>

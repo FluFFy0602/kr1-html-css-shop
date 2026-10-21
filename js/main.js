@@ -21,6 +21,12 @@ closeDialogButton.addEventListener('click', () => {
   orderDialog.close();
 });
 
+document.querySelectorAll('[data-close-dialog]').forEach((button) => {
+  button.addEventListener('click', () => {
+    orderDialog.close();
+  });
+});
+
 // A click on the backdrop is dispatched to the dialog itself,
 // so check that the pointer is outside the dialog box.
 // Clicks on children (e.g. options of the native <select> popup, which
