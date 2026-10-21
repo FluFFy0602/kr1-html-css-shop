@@ -870,6 +870,31 @@ body:has(.order-dialog[open]) {
   box-shadow: 0 2px 6px rgba(0, 87, 184, 0.35);
 }
 
+/* Order form placed on the page instead of the dialog. */
+.order-page {
+  max-width: 640px;
+}
+
+.order-page__intro {
+  margin-top: 0;
+  color: var(--color-muted);
+}
+
+.order-page__form {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
+}
+
+/* In the dialog the buttons are sticky and bleed to its edges; here they are plain. */
+.order-form__actions--inline {
+  position: static;
+  margin: var(--space-lg) 0 0;
+  padding: 0;
+  border-top: none;
+}
+
 .site-footer {
   padding: var(--space-lg);
   background-color: var(--color-surface);

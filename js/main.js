@@ -17,7 +17,9 @@ orderButtons.forEach((button) => {
   });
 });
 
-closeDialogButton.addEventListener('click', () => {
+// The same script runs on order.html, where the form is a regular page
+// section and there is no dialog, so everything about the dialog is optional.
+closeDialogButton?.addEventListener('click', () => {
   orderDialog.close();
 });
 
@@ -31,7 +33,7 @@ document.querySelectorAll('[data-close-dialog]').forEach((button) => {
 // so check that the pointer is outside the dialog box.
 // Clicks on children (e.g. options of the native <select> popup, which
 // report coordinates outside the dialog) must not close it.
-orderDialog.addEventListener('click', (event) => {
+orderDialog?.addEventListener('click', (event) => {
   if (event.target !== orderDialog) {
     return;
   }
@@ -72,7 +74,7 @@ orderForm.addEventListener('submit', (event) => {
 
   successMessage.hidden = false;
   orderForm.reset();
-  orderDialog.close();
+  orderDialog?.close();
 });
 
 // Phone mask: typing "7" gives "+7", then "+7 (900) 000-00-00" is built
