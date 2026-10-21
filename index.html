@@ -88,37 +88,153 @@
     <section class="section faq" id="faq">
       <h2 class="section__title">Частые вопросы</h2>
 
-      <details class="faq__item">
-        <summary class="faq__question">Как оформить заявку на товар?</summary>
-        <p class="faq__answer">
-          Нажмите кнопку «Заказать» в карточке товара, заполните форму
-          в открывшемся окне и отправьте заявку.
-        </p>
-      </details>
+      <p class="faq__intro">
+        Ответы на самые частые вопросы о заявках, каталоге и работе сайта.
+        Нажмите на вопрос, чтобы раскрыть ответ.
+      </p>
 
-      <details class="faq__item">
-        <summary class="faq__question">Можно ли изменить заявку после отправки?</summary>
-        <p class="faq__answer">
-          Да. Свяжитесь с нами по контактам со страницы «Контакты»
-          и назовите товар, который указывали в заявке.
-        </p>
-      </details>
+      <div class="faq__group">
+        <h3 class="faq__group-title">Заявка</h3>
 
-      <details class="faq__item">
-        <summary class="faq__question">Как узнать о наличии товара?</summary>
-        <p class="faq__answer">
-          Наличие указано в каталоге: у недоступных товаров стоит бейдж
-          «Нет в наличии», а кнопка неактивна.
-        </p>
-      </details>
+        <details class="faq__item">
+          <summary class="faq__question">Как оформить заявку на товар?</summary>
+          <div class="faq__answer">
+            <ol class="faq__list">
+              <li>Найдите товар в блоке «Популярные товары».</li>
+              <li>Нажмите кнопку «Заказать» в его карточке.</li>
+              <li>Заполните форму в открывшемся окне: название выбранного товара уже указано вверху.</li>
+              <li>Нажмите «Отправить заявку». Под блоком отзывов появится сообщение об успешной отправке.</li>
+            </ol>
+          </div>
+        </details>
 
-      <details class="faq__item">
-        <summary class="faq__question">Это настоящий интернет-магазин?</summary>
-        <p class="faq__answer">
-          Нет, это учебный проект по дисциплине «Фронтенд и бэкенд разработка».
-          Товары и заявки вымышленные.
-        </p>
-      </details>
+        <details class="faq__item">
+          <summary class="faq__question">Какие поля в форме обязательны?</summary>
+          <div class="faq__answer">
+            <p>Обязательные поля отмечены красной «звёздочкой»:</p>
+            <ul class="faq__list">
+              <li>имя (не короче двух символов);</li>
+              <li>e-mail в формате <code class="faq__code">name@example.ru</code>;</li>
+              <li>телефон в формате <code class="faq__code">+7 (900) 000-00-00</code>;</li>
+              <li>тема заявки;</li>
+              <li>согласие на обработку данных.</li>
+            </ul>
+            <p>Дата связи и комментарий необязательны.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Почему форма не отправляется и поле подсвечено красным?</summary>
+          <div class="faq__answer">
+            <p>
+              Форма проверяет данные перед отправкой. Красная рамка означает,
+              что значение пустое или записано неверно, чаще всего это телефон
+              не в том формате. Исправьте поле: рамка пропадёт сразу, как только
+              значение станет корректным.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Можно ли изменить или отменить заявку после отправки?</summary>
+          <div class="faq__answer">
+            <p>
+              Да. Напишите или позвоните по контактам со страницы
+              <a href="contacts.html">«Контакты»</a> и назовите товар,
+              который указали в заявке. Учебная версия сайта не хранит заявки,
+              поэтому изменения вносятся только по обращению.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="faq__group">
+        <h3 class="faq__group-title">Каталог и товары</h3>
+
+        <details class="faq__item">
+          <summary class="faq__question">Как узнать о наличии товара?</summary>
+          <div class="faq__answer">
+            <p>
+              Наличие видно в <a href="catalog.html">каталоге</a> по карточке:
+              у недоступных товаров серый фон, бейдж «Нет в наличии»
+              и неактивная кнопка «Недоступно».
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Что означают бейджи «Хит», «Новинка» и «Скидка»?</summary>
+          <div class="faq__answer">
+            <ul class="faq__list">
+              <li><strong>Хит</strong> — популярный товар, у карточки синяя рамка;</li>
+              <li><strong>Новинка</strong> — недавно добавленный товар;</li>
+              <li><strong>Скидка</strong> — товар по сниженной цене, рамка и цена выделены красным.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Работают ли фильтры в каталоге?</summary>
+          <div class="faq__answer">
+            <p>
+              Пока нет. Блок фильтров в учебной версии показывает раскладку
+              страницы: категории и диапазон цены. Фильтрация карточек
+              будет добавлена позже вместе с JavaScript.
+              При прокрутке списка блок фильтров остаётся на экране слева.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Как быстро перейти к нужному разделу?</summary>
+          <div class="faq__answer">
+            <p>
+              Используйте меню в шапке: пункты «Преимущества», «Популярные товары»
+              и «Частые вопросы» плавно прокручивают страницу к нужному блоку,
+              а «Каталог» и «Контакты» открывают отдельные страницы.
+              Кнопка «Наверх» в правом нижнем углу возвращает к началу страницы.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="faq__group">
+        <h3 class="faq__group-title">О сайте</h3>
+
+        <details class="faq__item">
+          <summary class="faq__question">Это настоящий интернет-магазин?</summary>
+          <div class="faq__answer">
+            <p>
+              Нет, это учебный проект по дисциплине «Фронтенд и бэкенд разработка».
+              Товары, цены, отзывы и заявки вымышленные, оплата и доставка
+              не подключены.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Какие данные сохраняются и куда они уходят?</summary>
+          <div class="faq__answer">
+            <p>
+              Никуда. Сайт работает только в браузере: форма проверяется скриптом
+              на странице, а введённые данные не отправляются на сервер и не сохраняются.
+              После успешной отправки форма очищается.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Удобно ли пользоваться сайтом с клавиатуры?</summary>
+          <div class="faq__answer">
+            <p>
+              Да. Все ссылки, кнопки и поля формы доступны через <kbd class="faq__key">Tab</kbd>
+              и имеют видимую рамку фокуса. Вопросы в этом разделе раскрываются
+              клавишами <kbd class="faq__key">Enter</kbd> и <kbd class="faq__key">Пробел</kbd>, а окно заявки
+              закрывается клавишей <kbd class="faq__key">Esc</kbd>.
+            </p>
+          </div>
+        </details>
+      </div>
     </section>
 
     <section class="section reviews" id="reviews">
