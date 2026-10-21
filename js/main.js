@@ -5,10 +5,13 @@ const selectedProductInput = document.getElementById('selected-product');
 
 const orderForm = document.getElementById('order-form');
 const successMessage = document.getElementById('success-message');
+const dialogProduct = document.getElementById('order-dialog-product');
 
 orderButtons.forEach((button) => {
   button.addEventListener('click', () => {
     selectedProductInput.value = button.dataset.product;
+    dialogProduct.textContent = `Выбранный товар: ${button.dataset.product}`;
+    dialogProduct.hidden = false;
     successMessage.hidden = true;
     orderDialog.showModal();
   });
