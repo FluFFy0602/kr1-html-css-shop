@@ -415,9 +415,17 @@ button:disabled,
 
 .order-dialog {
   width: min(100% - 32px, 560px);
+  max-height: calc(100vh - 32px);
   padding: var(--space-lg);
   border: none;
   border-radius: var(--radius-lg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* The page behind the open dialog must not scroll. */
+body:has(.order-dialog[open]) {
+  overflow: hidden;
 }
 
 .order-dialog::backdrop {
@@ -454,6 +462,14 @@ button:disabled,
 
 .order-dialog__title {
   margin-top: 0;
+}
+
+.order-dialog__product {
+  margin: calc(var(--space-sm) * -1) 0 var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-left: 4px solid var(--color-primary);
+  background-color: var(--color-surface-accent);
+  font-weight: 700;
 }
 
 .order-form__note {
@@ -515,10 +531,16 @@ button:disabled,
   outline-offset: 2px;
 }
 
+/* Buttons stay visible at the bottom while a long form scrolls. */
 .order-form__actions {
+  position: sticky;
+  bottom: 0;
   display: flex;
   gap: var(--space-sm);
-  margin-top: var(--space-lg);
+  margin: var(--space-lg) calc(var(--space-lg) * -1) calc(var(--space-lg) * -1);
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg);
 }
 
 .site-footer {
