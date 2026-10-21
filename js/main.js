@@ -20,7 +20,13 @@ closeDialogButton.addEventListener('click', () => {
 
 // A click on the backdrop is dispatched to the dialog itself,
 // so check that the pointer is outside the dialog box.
+// Clicks on children (e.g. options of the native <select> popup, which
+// report coordinates outside the dialog) must not close it.
 orderDialog.addEventListener('click', (event) => {
+  if (event.target !== orderDialog) {
+    return;
+  }
+
   const box = orderDialog.getBoundingClientRect();
   const isOutside =
     event.clientX < box.left ||
